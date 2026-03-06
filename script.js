@@ -201,3 +201,199 @@ function setupParticleEffect() {
 document.querySelector('.scroll-indicator')?.addEventListener('click', function () {
     document.querySelector('.intro').scrollIntoView({ behavior: 'smooth' });
 });
+
+// Compteur d'amour
+function setupLoveCounter() {
+    const startDate = new Date('2026-02-28T00:00:00'); // Date de la rencontre
+
+    function updateCounter() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+}
+
+// Lettre d'amour interactive
+function setupLoveLetter() {
+    const envelope = document.getElementById('letterEnvelope');
+    const front = envelope?.querySelector('.envelope-front');
+    const content = document.getElementById('letterContent');
+
+    if (envelope && front && content) {
+        front.addEventListener('click', function () {
+            front.style.display = 'none';
+            content.classList.remove('hidden');
+
+            // Créer une pluie de cœurs
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createFloatingHeartEmoji();
+                }, i * 100);
+            }
+        });
+    }
+}
+
+function createFloatingHeartEmoji() {
+    const hearts = ['❤️', '💖', '💕', '💗', '💓', '🌹'];
+    const heart = document.createElement('span');
+    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.position = 'fixed';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.top = '-50px';
+    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    heart.style.pointerEvents = 'none';
+    heart.style.zIndex = '10000';
+    heart.style.animation = `float ${Math.random() * 5 + 5}s linear forwards`;
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+// Pétales de rose
+function createRosePetals() {
+    const container = document.querySelector('.rose-petals');
+    if (!container) return;
+
+    const petals = ['🌹', '🥀', '🌸', '🌺', '💮'];
+
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            createPetal(container, petals);
+        }, i * 1000);
+    }
+
+    setInterval(() => {
+        createPetal(container, petals);
+    }, 3000);
+}
+
+function createPetal(container, petals) {
+    const petal = document.createElement('span');
+    petal.classList.add('rose-petal');
+    petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.animationDuration = (Math.random() * 5 + 10) + 's';
+    petal.style.fontSize = (Math.random() * 15 + 15) + 'px';
+
+    container.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 15000);
+}
+
+// Appeler les nouvelles fonctions
+document.addEventListener('DOMContentLoaded', function () {
+    setupLoveCounter();
+    setupLoveLetter();
+    createRosePetals();
+    setupLoveYouButton();
+    setupReasonCards();
+});
+
+// Bouton Je t'aime avec effet spécial
+function setupLoveYouButton() {
+    const btn = document.getElementById('loveYouBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', function (e) {
+        // Créer explosion de cœurs
+        createLoveExplosion(e.clientX, e.clientY);
+
+        // Message spécial
+        showLoveMessage();
+
+        // Changer le texte temporairement
+        const originalText = btn.textContent;
+        btn.textContent = '💕 Je t\'aime plus 💕';
+        btn.style.background = 'linear-gradient(135deg, #ff1744 0%, #ff4081 100%)';
+
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+        }, 3000);
+    });
+}
+
+function createLoveExplosion(x, y) {
+    const explosion = document.createElement('div');
+    explosion.classList.add('love-explosion');
+    explosion.style.left = x + 'px';
+    explosion.style.top = y + 'px';
+    document.body.appendChild(explosion);
+
+    const emojis = ['❤️', '💖', '💕', '💗', '💓', '🌹', '💘', '💝'];
+    const messages = ['Je t\'aime', 'Ma Reine', 'Pour toujours', 'Mon amour', 'Corneillia', 'SEGNANKA'];
+
+    for (let i = 0; i < 30; i++) {
+        const span = document.createElement('span');
+        span.textContent = Math.random() > 0.7 ? messages[Math.floor(Math.random() * messages.length)] : emojis[Math.floor(Math.random() * emojis.length)];
+
+        const angle = (Math.PI * 2 * i) / 30;
+        const velocity = 100 + Math.random() * 200;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+
+        span.style.setProperty('--tx', tx + 'px');
+        span.style.setProperty('--ty', ty + 'px');
+        span.style.fontSize = (Math.random() * 20 + 15) + 'px';
+
+        explosion.appendChild(span);
+    }
+
+    setTimeout(() => explosion.remove(), 2000);
+}
+
+function showLoveMessage() {
+    const messages = [
+        'Tu es l\'amour de ma vie !',
+        'Ma Reine Corneillia',
+        'Je veux passer ma vie avec toi',
+        'Tu es ma destinée',
+        'Nagnini SEGNANKA, je t\'adore'
+    ];
+
+    const msg = document.createElement('div');
+    msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+    msg.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #e74c3c, #ff6b6b);
+        color: white;
+        padding: 2rem 3rem;
+        border-radius: 20px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        z-index: 10001;
+        animation: fadeInOut 3s ease;
+        box-shadow: 0 20px 60px rgba(231, 76, 60, 0.5);
+    `;
+
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 3000);
+}
+
+// Cartes de raisons avec animation
+function setupReasonCards() {
+    const cards = document.querySelectorAll('.reason-card');
+
+    cards.forEach((card, index) => {
+        card.style.animationDelay = (index * 0.2) + 's';
+        card.classList.add('animate-in');
+    });
+}
