@@ -13,14 +13,37 @@
 
 <body>
     <div class="floating-hearts"></div>
+    <div class="rose-petals"></div>
+    <div class="heartbeat-container">
+        <span class="heartbeat">❤️</span>
+    </div>
 
     <header class="hero">
         <div class="hero-content">
-            <p class="subtitle">Une semaine déjà...</p>
+            <p class="subtitle">Depuis le 28 février 2026...</p>
             <h1 class="title">
                 <span class="highlight">Ma Reine Corneillia</span>
             </h1>
             <p class="tagline">Grateful de t'avoir dans ma vie</p>
+            <div class="love-counter" id="loveCounter">
+                <div class="counter-item">
+                    <span class="counter-number" id="days">0</span>
+                    <span class="counter-label">Jours</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="hours">0</span>
+                    <span class="counter-label">Heures</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="minutes">0</span>
+                    <span class="counter-label">Minutes</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="seconds">0</span>
+                    <span class="counter-label">Secondes</span>
+                </div>
+            </div>
+            <p class="counter-text">que mon cœur bat pour toi</p>
             <div class="scroll-indicator">
                 <span>Découvrir</span>
                 <div class="arrow"></div>
@@ -38,6 +61,51 @@
                         Chaque moment passé à tes côtés me rappelle à quel point tu es précieuse.
                     </p>
                     <p class="intro-signature">— Pour toujours</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="love-letter section-reveal">
+            <div class="container">
+                <h2 class="section-title">Ma Déclaration</h2>
+                <div class="letter-container">
+                    <div class="letter-envelope" id="letterEnvelope">
+                        <div class="envelope-front">
+                            <span class="envelope-icon">💌</span>
+                            <p class="envelope-text">Pour toi, ma Reine</p>
+                            <p class="envelope-hint">Clique pour ouvrir</p>
+                        </div>
+                        <div class="letter-content hidden" id="letterContent">
+                            <p class="letter-dear">Ma chère Corneillia,</p>
+                            <p class="letter-body">
+                                Je ne sais pas par où commencer, car chaque mot me semble insuffisant pour exprimer ce
+                                que je ressens.
+                            </p>
+                            <p class="letter-body">
+                                Tu es entrée dans ma vie comme une lumière dans l'obscurité, comme une mélodie douce
+                                dans le silence.
+                                Ton nom résonne dans mon cœur comme le plus beau des poèmes.
+                            </p>
+                            <p class="letter-body">
+                                Corneillia Nagnini SEGNANKA — ce nom que je chuchote avec tendresse.
+                                Tu n'es pas juste une rencontre, tu es MA rencontre. Celle qui change tout.
+                            </p>
+                            <p class="letter-body">
+                                Je pense à toi le matin en ouvrant les yeux, je pense à toi le soir en fermant les
+                                paupières.
+                                Tu occupes chaque pensée, chaque souffle, chaque battement de mon cœur.
+                            </p>
+                            <p class="letter-body">
+                                Je ne sais pas ce que l'avenir nous réserve, mais je sais que je veux le découvrir à tes
+                                côtés.
+                                Tu es devenue ma reine, mon inspiration, mon éternité.
+                            </p>
+                            <p class="letter-close">
+                                À toi, pour toujours et au-delà,<br>
+                                <span class="letter-signature">Celui qui t'adore</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -62,25 +130,94 @@
             </div>
         </section>
 
-        <section class="moments section-reveal">
+        <section class="reasons section-reveal">
             <div class="container">
-                <h2 class="section-title">Ce qui me fait vibrer</h2>
-                <div class="moments-grid">
-                    <div class="moment-card">
-                        <div class="moment-icon">❤</div>
-                        <h3>Ta présence</h3>
-                        <p>Rien ne vaut d'être à côté de toi</p>
+                <h2 class="section-title">Pourquoi je t'aime</h2>
+                <div class="reasons-container">
+                    <div class="reason-card" data-reason="1">
+                        <div class="reason-front">
+                            <span class="reason-number">1</span>
+                            <span class="reason-icon">💖</span>
+                        </div>
+                        <div class="reason-back">
+                            <p class="reason-text">Ton sourire illumine mes journées les plus sombres</p>
+                        </div>
                     </div>
-                    <div class="moment-card">
-                        <div class="moment-icon">👑</div>
-                        <h3>Ma Reine</h3>
-                        <p>Corneillia Nagnini SEGNANKA — mon trésor unique</p>
+                    <div class="reason-card" data-reason="2">
+                        <div class="reason-front">
+                            <span class="reason-number">2</span>
+                            <span class="reason-icon">🌟</span>
+                        </div>
+                        <div class="reason-back">
+                            <p class="reason-text">Ta voix est la mélodie que mon cœur veut entendre</p>
+                        </div>
                     </div>
-                    <div class="moment-card">
-                        <div class="moment-icon">💕</div>
-                        <h3>Ton âme</h3>
-                        <p>Chaque conversation avec toi est un cadeau</p>
+                    <div class="reason-card" data-reason="3">
+                        <div class="reason-front">
+                            <span class="reason-number">3</span>
+                            <span class="reason-icon">💫</span>
+                        </div>
+                        <div class="reason-back">
+                            <p class="reason-text">Ton rire est la musique de mon bonheur</p>
+                        </div>
                     </div>
+                    <div class="reason-card" data-reason="4">
+                        <div class="reason-front">
+                            <span class="reason-number">4</span>
+                            <span class="reason-icon">🌹</span>
+                        </div>
+                        <div class="reason-back">
+                            <p class="reason-text">Tes yeux reflètent l'univers que je veux explorer</p>
+                        </div>
+                    </div>
+                    <div class="reason-card" data-reason="5">
+                        <div class="reason-front">
+                            <span class="reason-number">5</span>
+                            <span class="reason-icon">✨</span>
+                        </div>
+                        <div class="reason-back">
+                            <p class="reason-text">Tu es parfaite, même dans tes imperfections</p>
+                        </div>
+                    </div>
+                    <div class="reason-card" data-reason="6">
+                        <div class="reason-front">
+                            <span class="reason-number">6</span>
+                            <span class="reason-icon">�</span>
+                        </div>
+                        <div class="reason-back">
+                            <p class="reason-text">Avec toi, chaque instant devient magique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="poem section-reveal">
+            <div class="container">
+                <h2 class="section-title">Poème pour toi</h2>
+                <div class="poem-container">
+                    <div class="poem-content">
+                        <p class="poem-line">Corneillia, nom doux qui danse sur mes lèvres,</p>
+                        <p class="poem-line">Comme une prière que le ciel perpétue.</p>
+                        <p class="poem-line">Nagnini, mystère que mon âme découvre,</p>
+                        <p class="poem-line">SEGNANKA, trésor que le destin a créé.</p>
+                        <br>
+                        <p class="poem-line">Tu es le soleil de mes matins sans nuages,</p>
+                        <p class="poem-line">La lune qui guide mes nuits les plus longues.</p>
+                        <p class="poem-line">Tu es l'étoile filante de tous mes vœux,</p>
+                        <p class="poem-line">L'océan profond où mon cœur se noie avec bonheur.</p>
+                        <br>
+                        <p class="poem-line">Si l'amour était une chanson,</p>
+                        <p class="poem-line">Tu en serais la plus belle mélodie.</p>
+                        <p class="poem-line">Si l'amour était un poème,</p>
+                        <p class="poem-line">Tu en serais chaque vers, chaque rime, chaque envolée.</p>
+                        <br>
+                        <p class="poem-line">Ma Reine, mon amour, mon éternité,</p>
+                        <p class="poem-line">Je t'offre ces mots, pauvres mais sincères.</p>
+                        <p class="poem-line">Car tu es celle qui fait battre mon cœur,</p>
+                        <p class="poem-line">Celle pour qui je veux écrire mille poèmes encore.</p>
+                    </div>
+                    <div class="poem-signature">— Écrit avec amour, pour toi</div>
                 </div>
             </div>
         </section>
@@ -122,6 +259,8 @@
     <footer class="footer">
         <p>Pour ma Reine Corneillia — site fait avec amour en pensant à toi</p>
     </footer>
+
+    <button class="love-you-btn" id="loveYouBtn">Je t'aime ❤️</button>
 
     <script src="script.js"></script>
 </body>
